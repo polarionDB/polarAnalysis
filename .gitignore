@@ -1,0 +1,7 @@
+.mypy_cache/
+.conda/
+*.pgn
+*.data_downloaded
+*.png
+*.eps
+*log*
