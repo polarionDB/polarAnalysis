@@ -1,8 +1,7 @@
-PY ?= pypy3.10
-MAIN_FILE = src/main.py
+PY ?= python3
 
 main: download_data
-	@$(PY) $(MAIN_FILE)
+	@$(PY) src/legal_moves.py
 
 download_data:
 ifeq (,$(wildcard data/.data_downloaded))

@@ -5,3 +5,8 @@
 *.png
 *.eps
 *log*
+
+/target
+.vscode/
+**old-**
+svgs/
