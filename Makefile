@@ -1,9 +1,10 @@
 PY ?= python3
 
-main: download_data
-	@$(PY) src/legal_moves.py
+main: legal_moves
+
+legal_moves: download_data
+	bun src/legal_moves.ts
+	$(PY) src/plot_legal_moves.py
 
 download_data:
-ifeq (,$(wildcard data/.data_downloaded))
-	@$(PY) download_data.py 
-endif
+	bash download_data.sh
