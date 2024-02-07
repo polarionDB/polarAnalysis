@@ -3,7 +3,7 @@
 To install dependencies:
 
 ```bash
-bun install
+bun install && pip3 install -r requirements.txt
 ```
 
 To run:
