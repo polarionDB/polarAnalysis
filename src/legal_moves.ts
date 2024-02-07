@@ -1,7 +1,4 @@
-import { promises as fs } from 'fs';
 import { Database, Game, pgnRead, Position, Variation } from 'kokopu';
-
-const each = require("async-each");
 
 type averageMovesMap = Map<number, [number, number]>;
 
@@ -19,7 +16,7 @@ const main = async (): Promise<void> => {
 
     let average_moves: [averageMovesMap, averageMovesMap] = [new Map(), new Map()];
 
-    each([...Array(db.gameCount()).keys()], (game_i: number, callback: any) => {
+    [...Array(db.gameCount()).keys()].forEach((game_i: number, callback: any) => {
         amount_of_games += 1;
         
         try {
@@ -47,7 +44,7 @@ const main = async (): Promise<void> => {
         if (error) {throw error};
     });
 
-    console.log("Analyzed " + amount_of_positions + " positions of " + amount_of_games + " games.");
+    console.log("Analyzed " + amount_of_positions + " moves of " + amount_of_games + " games.");
 
     const white = JSON.stringify({
         x: [...average_moves[0].keys()],

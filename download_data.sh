@@ -11,7 +11,7 @@ set -x
 
 rm urls.txt
 touch urls.txt
-seq 1300 1399 | xargs -n1 -P2 bash -c 'i=$0; url="https://theweekinchess.com/zips/twic${i}g.zip"; output="data/twic${i}g.zip"; echo -e "url = \"$url\"\noutput = \"$output\"" >> urls.txt'
+seq 1300 1400 | xargs -n1 -P2 bash -c 'i=$0; url="https://theweekinchess.com/zips/twic${i}g.zip"; output="data/twic${i}g.zip"; echo -e "url = \"$url\"\noutput = \"$output\"" >> urls.txt'
 
 curl -v -k -H 'Cache-Control: no-cache' --parallel --parallel-immediate --parallel-max 10 --config urls.txt
 
@@ -25,6 +25,8 @@ done
 mv *.pgn data/
 rm -fdr data/*.zip
 cat data/*.pgn > data/twic_full.pgn1
+cat `seq 1300 1350 | xargs -n1 -P2 bash -c 'echo -n "twic"$0".pgn "'` > data/twic_half.pgn
+
 rm data/*.pgn
 mv data/twic_full.pgn1 data/twic_full.pgn
 

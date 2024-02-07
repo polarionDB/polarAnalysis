@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "async-each": "^1.0.6",
-    "kokopu": "^4.8.0"
+    "chess-bit-board": "^1.1.0",
+    "kokopu": "^4.8.0",
+    "long": "^5.2.3",
+    "parallel-each": "^1.1.7"
   }
 }
